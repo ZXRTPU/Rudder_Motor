@@ -1,0 +1,14 @@
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+rudder_motor\stream_buffer.o: D:\Keil-APPINSTALL\ARM\ARMCC\Bin\..\include\stdint.h
+rudder_motor\stream_buffer.o: D:\Keil-APPINSTALL\ARM\ARMCC\Bin\..\include\string.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+rudder_motor\stream_buffer.o: D:\Keil-APPINSTALL\ARM\ARMCC\Bin\..\include\stddef.h
+rudder_motor\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+rudder_motor\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
