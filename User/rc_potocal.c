@@ -23,7 +23,8 @@ uint16_t b_flag;
   uint8_t temp_remote[8];
  RC_ctrl_t rc_ctrl;
  #define RC_CH_VALUE_OFFSET      ((uint16_t)1024)
-   void USART3_rxDataHandler(uint8_t *rxBuf)
+
+void USART3_rxDataHandler(uint8_t *rxBuf)
 {
     rc_ctrl.rc.ch[0] = (rxBuf[0] | (rxBuf[1] << 8)) & 0x07ff;        //!< Channel 0  中值为1024，最大值1684，最小值364，波动范围：660
     rc_ctrl.rc.ch[1] = (((rxBuf[1] >> 3)&0xff) | (rxBuf[2] << 5)) & 0x07ff; //!< Channel 1

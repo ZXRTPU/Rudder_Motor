@@ -42,3 +42,4 @@ rudder_motor\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable
 rudder_motor\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 rudder_motor\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 rudder_motor\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+rudder_motor\stm32f4xx_it.o: ..\User\drv_usart.h

@@ -28,9 +28,14 @@ typedef enum {
 extern int16_t Drifting_yaw;
 extern uint16_t Down_ins_yaw;
 
-void Chassis_task(void const *pvParameters);
+void rudder_motor_task(void const * argument);
 void RC_to_Vector(void);
 void chassis_motol_speed_calculate(void);
 void Motor_Speed_limiting(volatile int16_t *motor_speed,int16_t limit_speed);
 void chassis_current_give(void);
 #endif
+
+
+
+
+

@@ -51,3 +51,5 @@ rudder_motor\main.o: ../Core/Inc/dma.h
 rudder_motor\main.o: ../Core/Inc/tim.h
 rudder_motor\main.o: ../Core/Inc/usart.h
 rudder_motor\main.o: ../Core/Inc/gpio.h
+rudder_motor\main.o: ..\User\drv_can.h
+rudder_motor\main.o: ..\User\drv_usart.h

@@ -11,6 +11,7 @@ double  get_x_ch1();
 
 double  get_y_ch0();
 
-double get_xy_angle_8191(uint16_t ZERO_POS);
+double get_xy_angle_8191(int_least16_t ZERO_POS);
 
 #endif
+
