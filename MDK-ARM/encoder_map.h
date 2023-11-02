@@ -6,6 +6,6 @@
 #include "math.h"
 
 //对当前角度即rotor_angle整定到标准编码盘上
-int_least16_t encoder_map_8191(int_least16_t ZERO_POS,int_least16_t rotor_angle);
+int16_t encoder_map_8191(int16_t ZERO_POS,int16_t rotor_angle);
 
 #endif

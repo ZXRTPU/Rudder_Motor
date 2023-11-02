@@ -74,6 +74,7 @@ float pid_pitch_calc(pid_struct_t *pid, float ref, float fdb)//ref是目标值,fdb是
 		err += 8191;
 	}
 	
+	
   pid->error[0] = err;//err[0]是这一次的预期速度和实际速度的差值,这两个值是可以是负数的
 	
   pid->Pout  = pid->Kp * pid->error[0];//40 3 0是标准值，把这个加到watch1里面

@@ -7,9 +7,9 @@ pid_struct_t motor_pid_chassis[4];
 motor_info_t  motor_info_chassis[8];       //电机信息结构体
 
 fp32 motor_speed_pid [3]={30,0.5,10};   //用的原来的pid
-fp32 motor_angle_pid[3]={20,0,0};
+fp32 motor_angle_pid[3]={2,0,0.3};
 
-int_least16_t ZERO_pos[4]={0};//要获取零位校准时电机的编码值
+int16_t ZERO_pos[4]={0};//要获取零位校准时电机的编码值
 
 /*
 int16_t Temp_Vx;
@@ -31,27 +31,27 @@ void chassis_current_give();
 void chassis_current_give_1() ;
 
 double a=0;
-int_least16_t b=0;
+int16_t b=0;
 
 void rudder_motor_task(void const * argument)
-{     
-	/*
- 		  for (uint8_t i = 0; i < 4; i++)
-			{
-        pid_init(&motor_pid_chassis[i], motor_speed_pid, 6000, 6000); //init pid parameter, kp=40, ki=3, kd=0, output limit = 16384
-				
-			} */
-	  ZERO_pos[0]=0;
-	  ZERO_pos[1]=0;
-    ZERO_pos[2]=0;
-	  ZERO_pos[3]=0;
+{      
+	  osDelay(10);
+
+    ZERO_pos[2]= motor_info_chassis[2].rotor_angle;
+			
 
     for(;;)				//底盘运动任务
     {     
 			//校准电机零位时，可以先将下列函数注释掉
 			chassis_current_give();
-			
-			/*
+ 					
+            osDelay(1);
+
+    }
+
+}
+
+/*
 			for(a=0;a<4096;a+=512)
 			{
 				while(encoder_map_8191(ZERO_pos[2],motor_info_chassis[2].rotor_angle)!=a)
@@ -62,13 +62,8 @@ void rudder_motor_task(void const * argument)
 				osDelay(100);
 				
 			}*/
- 					
-            osDelay(1);
 
-    }
-
-}
-
+fp32 current=0;
 
 //电机电流控制
 void chassis_current_give() 
@@ -78,7 +73,8 @@ void chassis_current_give()
         
     for(i=0 ; i<4; i++)
     {
-			  pid_init(&motor_pid_chassis[i], motor_angle_pid, 10000, 10000);
+			  pid_init(&motor_pid_chassis[i], motor_angle_pid, 10000, 10000);  
+			
 			  motor_speed_target[i]=pid_pitch_calc(&motor_pid_chassis[i],
 			                                        encoder_map_8191(ZERO_pos[i],motor_info_chassis[i].rotor_angle),
 			                                         get_xy_angle_8191(ZERO_pos[2]));
@@ -91,8 +87,16 @@ void chassis_current_give()
 					motor_speed_target[i]=0;
 				}
 			
-			  pid_init(&motor_pid_chassis[i], motor_speed_pid, 6000, 6000);
-        motor_info_chassis[i].set_current = pid_calc(&motor_pid_chassis[i], motor_info_chassis[i].rotor_speed,motor_speed_target[i]);
+				pid_init(&motor_pid_chassis[i], motor_speed_pid, 6000, 6000);
+				
+				current=pid_calc(&motor_pid_chassis[i], motor_info_chassis[i].rotor_speed,motor_speed_target[i]);
+				
+				if(current>motor_speed_target[i])
+				{
+					current=0;
+				}
+				
+				motor_info_chassis[i].set_current = current;
     }
     	
 		set_motor_current_can2(0, motor_info_chassis[0].set_current, motor_info_chassis[1].set_current, motor_info_chassis[2].set_current, motor_info_chassis[3].set_current);
