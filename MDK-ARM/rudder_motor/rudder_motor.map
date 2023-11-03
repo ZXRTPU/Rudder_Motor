@@ -3323,7 +3323,7 @@ Image component sizes
        702         72          0         12          0      11264   port.o
        372         58          0         16          0       2248   rc_map.o
        320         10          0         42         22       2643   rc_potocal.o
-        64         26        392          0       1536        864   startup_stm32f407xx.o
+        64         26        392          0       1536        868   startup_stm32f407xx.o
        144         24          0         12          0       8941   stm32f4xx_hal.o
       1638          6          0          0          0      14739   stm32f4xx_hal_can.o
        198         14          0          0          0      34099   stm32f4xx_hal_cortex.o
@@ -3343,7 +3343,7 @@ Image component sizes
        904         80          0          0        780       3918   usart.o
 
     ----------------------------------------------------------------------
-     17414       1164        544        264      19808     974710   Object Totals
+     17414       1164        544        264      19808     974714   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          4          7          2          0   (incl. Padding)
 
@@ -3419,8 +3419,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     22332       1542        704        264      19904     959290   Grand Totals
-     22332       1542        704        264      19904     959290   ELF Image Totals
+     22332       1542        704        264      19904     959294   Grand Totals
+     22332       1542        704        264      19904     959294   ELF Image Totals
      22332       1542        704        264          0          0   ROM Totals
 
 ==============================================================================
